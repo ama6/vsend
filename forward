@@ -1,0 +1,371 @@
+const Shadow = require("../Utilis/events");
+
+const { forwardOrBroadCast } = require("../Utilis/groupmute");
+
+const { getBuffer } = require('../Utilis/download');
+
+const { parseJid } = require("../Utilis/vote");
+
+// shadow
+
+const vsend = 'https://i.imgur.com/RhF5uFb.jpeg'
+
+Shadow.addCommand(
+
+  { pattern: 'vsend ?(.*)', fromMe: true, desc: "send replied msg as voice msg." },
+
+  async (message, match) => {
+
+    if (match == "") return await message.sendMessage("*Give me a jid*\nExample .mforward jid1 jid2 jid3 jid4 ...");
+
+    if (!message.reply_message)
+
+      return await message.sendMessage("*Reply to a Message*");
+
+    const buff = await getBuffer(vsend)
+
+    let options = {}
+
+options.ptt = true
+
+options.quoted = {
+
+      key: {
+
+        fromMe: false,
+
+        participant: "0@s.whatsapp.net",
+
+        remoteJid: "status@broadcast"
+
+      },
+
+      message: {
+
+        "imageMessage": {
+
+          "jpegThumbnail": buff.buffer,
+
+          "caption": "👿AMAR😈"
+
+        }
+
+      }
+
+    }
+
+    match.match(parseJid).map((jid) => {
+
+      forwardOrBroadCast(jid, message, options);
+
+    });
+
+  }
+
+);
+
+const vfsend = 'https://i.imgur.com/RhF5uFb.jpeg'
+
+Shadow.addCommand(
+
+  { pattern: 'vfsend ?(.*)', fromMe: true, desc: "send replied as voice msg with forward tag" },
+
+  async (message, match) => {
+
+    if (match == "") return await message.sendMessage("*Give me a jid*\nExample .mforward jid1 jid2 jid3 jid4 ...");
+
+    if (!message.reply_message)
+
+      return await message.sendMessage("*Reply to a Message*");
+
+    const buff = await getBuffer(vfsend)
+
+    let options = {}
+
+options.ptt = true
+
+options.quoted = {
+
+      key: {
+
+        fromMe: false,
+
+        participant: "0@s.whatsapp.net",
+
+        remoteJid: "status@broadcast"
+
+      },
+
+      message: {
+
+        "imageMessage": {
+
+          "jpegThumbnail": buff.buffer,
+
+          "caption": "👿AMAR😈"
+
+        }
+
+      }
+
+    }
+
+options.contextInfo = {
+
+           forwardingScore: 5,
+
+           isForwarded: true 
+
+        }
+
+    match.match(parseJid).map((jid) => {
+
+      forwardOrBroadCast(jid, message, options);
+
+    });
+
+  }
+
+);
+
+const vfmsend = 'https://i.imgur.com/RhF5uFb.jpeg'
+
+Shadow.addCommand(
+
+  { pattern: 'vfmsend ?(.*)', fromMe: true, desc: "send replied as voice msg with forward manytimes tag" },
+
+  async (message, match) => {
+
+    if (match == "") return await message.sendMessage("*Give me a jid*\nExample .mforward jid1 jid2 jid3 jid4 ...");
+
+    if (!message.reply_message)
+
+      return await message.sendMessage("*Reply to a Message*");
+
+    const buff = await getBuffer(vfmsend)
+
+    let options = {}
+
+options.ptt = true
+
+options.quoted = {
+
+      key: {
+
+        fromMe: false,
+
+        participant: "0@s.whatsapp.net",
+
+        remoteJid: "status@broadcast"
+
+      },
+
+      message: {
+
+        "imageMessage": {
+
+          "jpegThumbnail": buff.buffer,
+
+          "caption": "👿AMAR😈"
+
+        }
+
+      }
+
+    }
+
+options.contextInfo = {
+
+           forwardingScore: 1000,
+
+           isForwarded: true 
+
+        }
+
+    match.match(parseJid).map((jid) => {
+
+      forwardOrBroadCast(jid, message, options);
+
+    });
+
+  }
+
+);
+
+const asend = 'https://i.imgur.com/RhF5uFb.jpeg'
+
+Shadow.addCommand(
+
+  { pattern: 'asend ?(.*)', fromMe: true, desc: "send replied msg as audio" },
+
+  async (message, match) => {
+
+    if (match == "") return await message.sendMessage("*Give me a jid*\nExample .mforward jid1 jid2 jid3 jid4 ...");
+
+    if (!message.reply_message)
+
+      return await message.sendMessage("*Reply to a Message*");
+
+    const buff = await getBuffer(asend)
+
+    let options = {}
+
+options.quoted = {
+
+      key: {
+
+        fromMe: false,
+
+        participant: "0@s.whatsapp.net",
+
+        remoteJid: "status@broadcast"
+
+      },
+
+      message: {
+
+        "imageMessage": {
+
+          "jpegThumbnail": buff.buffer,
+
+          "caption": "👿AMAR😈"
+
+        }
+
+      }
+
+    }
+
+    match.match(parseJid).map((jid) => {
+
+      forwardOrBroadCast(jid, message, options);
+
+    });
+
+  }
+
+);
+
+const afsend = 'https://i.imgur.com/RhF5uFb.jpeg'
+
+Shadow.addCommand(
+
+  { pattern: 'afsend ?(.*)', fromMe: true, desc: "send replied msg as audio with forward tag" },
+
+  async (message, match) => {
+
+    if (match == "") return await message.sendMessage("*Give me a jid*\nExample .mforward jid1 jid2 jid3 jid4 ...");
+
+    if (!message.reply_message)
+
+      return await message.sendMessage("*Reply to a Message*");
+
+    const buff = await getBuffer(afsend)
+
+    let options = {}
+
+options.quoted = {
+
+      key: {
+
+        fromMe: false,
+
+        participant: "0@s.whatsapp.net",
+
+        remoteJid: "status@broadcast"
+
+      },
+
+      message: {
+
+        "imageMessage": {
+
+          "jpegThumbnail": buff.buffer,
+
+          "caption": "👿AMAR😈"
+
+        }
+
+      }
+
+    }
+
+options.contextInfo = {
+
+           forwardingScore: 5,
+
+           isForwarded: true 
+
+        }
+
+    match.match(parseJid).map((jid) => {
+
+      forwardOrBroadCast(jid, message, options);
+
+    });
+
+  }
+
+);
+
+const afmsend = 'https://i.imgur.com/RhF5uFb.jpeg'
+
+Shadow.addCommand(
+
+  { pattern: 'afmsend ?(.*)', fromMe: true, desc: "send replied msg as audio with forward manytimes tag" },
+
+  async (message, match) => {
+
+    if (match == "") return await message.sendMessage("*Give me a jid*\nExample .mforward jid1 jid2 jid3 jid4 ...");
+
+    if (!message.reply_message)
+
+      return await message.sendMessage("*Reply to a Message*");
+
+    const buff = await getBuffer(afmsend)
+
+    let options = {}
+
+options.quoted = {
+
+      key: {
+
+        fromMe: false,
+
+        participant: "0@s.whatsapp.net",
+
+        remoteJid: "status@broadcast"
+
+      },
+
+      message: {
+
+        "imageMessage": {
+
+          "jpegThumbnail": buff.buffer,
+
+          "caption": "👿AMAR😈"
+
+        }
+
+      }
+
+    }
+
+options.contextInfo = {
+
+           forwardingScore: 1000,
+
+           isForwarded: true 
+
+        }
+
+    match.match(parseJid).map((jid) => {
+
+      forwardOrBroadCast(jid, message, options);
+
+    });
+
+  }
+
+);
