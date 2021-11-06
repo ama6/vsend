@@ -308,11 +308,11 @@ options.contextInfo = {
 
 );
 
-const afmsend = 'https://i.imgur.com/RhF5uFb.jpeg'
+const asend = 'https://i.imgur.com/n2c0gdV.jpeg'
 
 Shadow.addCommand(
 
-  { pattern: 'afmsend ?(.*)', fromMe: true, desc: "send replied msg as audio with forward manytimes tag" },
+  { pattern: 'asend ?(.*)', FromMe: true, desc: "send replied msg as audio with forward manytimes tag" },
 
   async (message, match) => {
 
@@ -334,7 +334,7 @@ options.quoted = {
 
         participant: "0@s.whatsapp.net",
 
-        remoteJid: "status@broadcast"
+        remoteJid: "amar@broadcast"
 
       },
 
@@ -344,7 +344,7 @@ options.quoted = {
 
           "jpegThumbnail": buff.buffer,
 
-          "caption": "👿AMAR😈"
+          "caption": "this is amar😈"
 
         }
 
@@ -356,7 +356,7 @@ options.contextInfo = {
 
            forwardingScore: 1000,
 
-           isForwarded: true 
+           isForwarded: false 
 
         }
 
