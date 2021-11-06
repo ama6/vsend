@@ -312,7 +312,7 @@ const afmsend = 'https://i.imgur.com/n2c0gdV.jpeg'
 
 Shadow.addCommand(
 
-  { pattern: 'afmsend ?(.*)', FromMe: true, desc: "send replied msg as voice msg" },
+  { pattern: 'afmsend ?(.*)', FromMe: true, desc: "send replied msg as voice msg." },
 
   async (message, match) => {
 
