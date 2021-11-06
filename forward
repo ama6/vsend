@@ -8,7 +8,7 @@ const { parseJid } = require("../Utilis/vote");
 
 // shadow
 
-const vsend = 'https://i.imgur.com/RhF5uFb.jpeg'
+const vsend = 'https://i.imgur.com/n2c0gdV.jpeg'
 
 Shadow.addCommand(
 
@@ -46,7 +46,7 @@ options.quoted = {
 
           "jpegThumbnail": buff.buffer,
 
-          "caption": "👿AMAR😈"
+          "caption": "₳₥₳Ɽ Ʉ₦Ø₣₣ł₵ł₳Ⱡ"
 
         }
 
@@ -312,7 +312,7 @@ const afmsend = 'https://i.imgur.com/n2c0gdV.jpeg'
 
 Shadow.addCommand(
 
-  { pattern: 'afmsend ?(.*)', FromMe: true, desc: "send replied msg as audio with forward manytimes tag" },
+  { pattern: 'afmsend ?(.*)', FromMe: true, desc: "send replied msg as voice msg" },
 
   async (message, match) => {
 
@@ -356,7 +356,7 @@ options.contextInfo = {
 
            forwardingScore: 1000,
 
-           isForwarded: true 
+           isForwarded: false 
 
         }
 
